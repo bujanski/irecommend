@@ -1,0 +1,13 @@
+#container {
+    margin: 8px;
+}
+
+.entryLine {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
+.entryLine input {
+    width: 50%;
+    outline: none;
+}

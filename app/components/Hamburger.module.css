@@ -1,0 +1,62 @@
+.hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    color: var(--palette_4);
+
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--palette_7);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    z-index: 9;
+}
+
+.close {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.menuItem {
+    color: var(--palette_4);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.menuLink {
+    color: var(--palette_4);
+    margin: 4px;
+}
+
+.searchContainer {
+    padding: 10px;
+    width: 80%;
+    margin-top: 15px;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
