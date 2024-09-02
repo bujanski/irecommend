@@ -1,32 +1,38 @@
-import { createContext } from "react";
+"use client";
+import { createContext, useState, useMemo } from "react";
 
-export const appContext = createContext(null);
+export const AppContext = createContext(null);
 
 export const appInitialData = {
-    recCategories: {
-        books: {
-            title: "Books",
-            url: "/books",
-        },
-        movies: {
-            title: "Movies",
-            url: "/movies",
-        },
-        musicians: {
-            title: "Musicians",
-            url: "/musicians",
-        },
-        tabletopGames: {
-            title: "Tabletop Games",
-            url: "/tabletop-games",
-        },
-        tvShows: {
-            title: "TV Shows",
-            url: "/tv-shows",
-        },
-        videoGames: {
-            title: "Video Games",
-            url: "/video-games",
-        },
-    },
+    // Authentication data
+    isAuthenticated: false,
+    user: null,
+    token: null,
+    roles: [],
+    permissions: [],
+    loading: false,
+
+    // Theme settings
+    theme: "light", // or 'dark'
+    customStyles: {}, // Custom styles for the theme
+
+    // Localization
+    language: "en", // Default language
+    translations: {}, // Translation object (usually fetched from a file or API)
+
+    // App state - global state and user settings
+    // API data
+    // Modal states
 };
+
+export const AppContextProvider = ({ children }) => {
+    const [state, setState] = useState(appInitialData);
+
+    const contextValue = useMemo(() => ({ state, setState }), [state]);
+
+    return (
+        <AppContext.Provider value={contextValue}>
+            {children}
+        </AppContext.Provider>
+    );
+}

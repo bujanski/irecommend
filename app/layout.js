@@ -1,6 +1,8 @@
 import { Cabin } from "next/font/google";
 import "./globals.css";
-import TopBar from "./components/TopBar";
+import Header from "./components/Header";
+import ColorPalette from "./components/ColorPalette";
+import { AppContextProvider } from "./AppContext";
 
 const cabin = Cabin({ subsets: ["latin"] });
 
@@ -13,8 +15,11 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={cabin.className}>
-                <TopBar />
-                {children}
+                <AppContextProvider>
+                    <Header />
+                    {children}
+                    <ColorPalette />
+                </AppContextProvider>
             </body>
         </html>
     );

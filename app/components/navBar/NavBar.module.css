@@ -1,0 +1,23 @@
+#container {
+    background-color: var(--palette_7);
+    color: var(--palette_9);
+    display: none;
+    justify-content: space-between;
+    width: 1000px;
+    margin: auto;
+    
+}
+
+.navButton {
+    padding: 8px;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    color: var(--palette_4);
+}
+
+@media (min-width: 1080px) {
+    #container {
+        display: flex;
+    }
+}

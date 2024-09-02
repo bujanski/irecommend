@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import styles from "./Hamburger.module.css";
-import { appInitialData } from "../appContext";
+import { categories } from "../lib/categories";
 
 const Hamburger = () => {
-    const { recCategories } = appInitialData;
     const [isOpen, setIsOpen] = useState(false);
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState("");
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -22,26 +21,25 @@ const Hamburger = () => {
             <button className={styles.hamburger} onClick={toggleMenu}>
                 {isOpen ? "✖" : "☰"}
             </button>
-            {isOpen && (
-                <div className={styles.menu}>
-                    <div className={styles.searchContainer}>
-                        <input
-                            type="text"
-                            placeholder="Search..."
-                            value={searchQuery}
-                            onChange={handleSearchChange}
-                            className={styles.searchInput}
-                        />
-                    </div>
-                    {Object.values(recCategories).map((category, index) => (
-                        <div key={index} className={styles.menuItem}>
-                            <a href={category.url} className={styles.menuLink}>
-                                {category.title}
-                            </a>
-                        </div>
-                    ))}
+            <div className={`${styles.menu} ${isOpen ? styles.open : ""}`}>
+                <div className={styles.iRecommend}>iRecommend</div>
+                <div className={styles.searchContainer}>
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                        className={styles.searchInput}
+                    />
                 </div>
-            )}
+                {Object.values(categories).map((category, index) => (
+                    <div key={index} className={styles.menuItem}>
+                        <a href={category.url} className={styles.menuLink}>
+                            {category.title}
+                        </a>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

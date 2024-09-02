@@ -14,11 +14,6 @@
     margin-bottom: 6px;
 }
 
-#hamburger {
-    margin: 18px;
-    background-color: red;
-}
-
 #iRecommend {
     font-size: 1.6em;
     position: absolute;
@@ -40,4 +35,7 @@
     align-items: center;  /* Vertically centers the text */
     height: 100%;  /* Ensures the row takes up the full height available */
     background-color: var(--palette_7);
+    color: var(--palette_4);
+    padding: 0px 0px 8px 0px;
+    border-bottom: 1px solid var(--palette_4);
 }

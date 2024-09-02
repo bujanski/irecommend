@@ -1,0 +1,12 @@
+.container {
+    padding: 8px;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    color: var(--palette_4);
+}
+
+.active {
+    background-color: var(--palette_4);
+    color: var(--palette_7)
+}

@@ -11,12 +11,23 @@
     --palette_9: #759ed0;
     --palette_a: #434ea8;
     --palette_b: #2a2140;
-    --palette_c: #e1a7c5;
+    --palette_c: #091619;
     --palette_d: #ab7ac6;
     --palette_e: #735bab;
-    --palette_f: #3b3772;  /* Almost black */
+    --palette_f: #3b3772;
     --body-width: 1300px;
-    background-color: var(--palette_4);
+    background-color: var(--palette_c);
+    color: var(--palette_4);
+}
+
+.dark_mode {
+    background-color: var(--palette_c);
+    color: var(--palette_4);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 * {

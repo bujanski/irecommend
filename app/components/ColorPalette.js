@@ -13,7 +13,7 @@ const colors = {
     palette_9: "#759ed0",
     palette_a: "#434ea8",
     palette_b: "#2a2140",
-    palette_c: "#e1a7c5",
+    palette_c: "#091619",
     palette_d: "#ab7ac6",
     palette_e: "#735bab",
     palette_f: "#3b3772",
@@ -21,7 +21,7 @@ const colors = {
 
 const ColorPalette = () => {
     return (
-        <div style={{ padding: "20px", backgroundColor: colors.palette_4 }}>
+        <div style={{ padding: "20px", backgroundColor: colors.palette_c }}>
             <h1 style={{ color: colors.palette_7 }}>color palette</h1>
             <div style={{ display: "flex", flexWrap: 'wrap' }}>
                 {Object.keys(colors).map((key) => (

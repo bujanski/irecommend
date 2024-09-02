@@ -1,0 +1,19 @@
+#movie_form {
+    min-width: 400px;
+    padding: 6px;
+    border: 1px solid white;
+}
+
+#movie_form label {
+    margin-right: 5px;
+}
+
+.input_text{
+    padding: 6px;
+}
+
+.input_text input {
+    width: 100%;
+    background-color: var(--palette_7);
+    color: var(--palette_4);
+}
