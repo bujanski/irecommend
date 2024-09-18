@@ -1,66 +1,5 @@
 import mongoose from "mongoose";
 
-const awardSchema = new mongoose.Schema({
-    year: {
-        type: Number,
-        required: true,
-    },
-    category: {
-        type: String,
-        required: true,
-    },
-    award: {
-        type: String,
-        required: true,
-    },
-});
-
-const episodeSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true,
-    },
-    airDate: {
-        type: Date,
-    },
-    runTime: {
-        type: String,
-        validate: {
-            validator: function (v) {
-                return /\d{1,3} min/.test(v);
-            },
-            message: (props) => `${props.value} is not a valid runtime!`,
-        },
-    },
-    synopsis: {
-        type: String,
-    },
-});
-
-const seasonSchema = new mongoose.Schema({
-    seasonNumber: {
-        type: Number,
-        required: true,
-    },
-    episodes: {
-        type: [episodeSchema],
-    },
-    airDate: {
-        type: Date,
-    },
-});
-
-const tvCastSchema = new mongoose.Schema({
-    actor: {
-        type: String,
-        required: true,
-    },
-    role: {
-        type: String,
-        required: true,
-    },
-});
-
 const tvShowSchema = new mongoose.Schema(
     {
         title: {
@@ -68,45 +7,17 @@ const tvShowSchema = new mongoose.Schema(
             required: true,
             index: true,
         },
-        creators: {
+        writers: {
             type: [String],
         },
-        directors: {
+        actors: {
             type: [String],
         },
-        producers: {
-            type: [String],
-        },
-        screenwriters: {
-            type: [String],
-        },
-        cast: {
-            type: [tvCastSchema],
-        },
-        cinematographers: {
-            type: [String],
-        },
-        editors: {
-            type: [String],
-        },
-        composers: {
-            type: [String],
+        year: {
+            type: String,
         },
         firstAirDate: {
-            type: Date,
-            required: true,
-            validate: {
-                validator: function (v) {
-                    return v <= Date.now();
-                },
-                message: (props) => `${props.value} is not a valid air date!`,
-            },
-        },
-        lastAirDate: {
-            type: Date,
-        },
-        productionCompanies: {
-            type: [String],
+            type: String,
         },
         countryOfOrigin: {
             type: [String],
@@ -121,7 +32,7 @@ const tvShowSchema = new mongoose.Schema(
             type: [String],
         },
         seasons: {
-            type: [seasonSchema],
+            type: String,
         },
         keywords: {
             type: [String],
@@ -143,9 +54,6 @@ const tvShowSchema = new mongoose.Schema(
         streamPlatforms: {
             type: [String],
         },
-        awards: {
-            type: [awardSchema],
-        },
         posterURL: {
             type: String,
         },
@@ -155,4 +63,6 @@ const tvShowSchema = new mongoose.Schema(
     }
 );
 
-export const TVShow = mongoose.models.TVShow || mongoose.model("TVShow", tvShowSchema);
+const TVShow = mongoose.models.TVShow || mongoose.model("TVShow", tvShowSchema);
+
+export default TVShow;

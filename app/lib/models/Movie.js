@@ -1,30 +1,4 @@
-import mongoose from "mongoose";
-
-const movieAwardSchema = new mongoose.Schema({
-    year: {
-        type: Number,
-        required: true,
-    },
-    category: {
-        type: String,
-        required: true,
-    },
-    award: {
-        type: String,
-        required: true,
-    },
-});
-
-const movieCastSchema = new mongoose.Schema({
-    actor: {
-        type: String,
-        required: true,
-    },
-    role: {
-        type: String,
-        required: true,
-    },
-});
+import mongoose from 'mongoose';
 
 const movieSchema = new mongoose.Schema(
     {
@@ -33,30 +7,32 @@ const movieSchema = new mongoose.Schema(
             required: true,
             index: true,
         },
+        year: {
+            type: String,
+        },
         directors: {
             type: [String],
         },
         producers: {
             type: [String],
         },
-        screenwriters: {
+        writers: {
             type: [String],
         },
-        cast: {
-            type: [movieCastSchema],
+        actors: {
+            type: [String],
         },
         cinematographers: {
             type: [String],
         },
-        editor: {
-            type: String,
+        editors: {
+            type: [String],
         },
-        composer: {
-            type: String,
+        composers: {
+            type: [String],
         },
         releaseDate: {
-            type: Date,
-            required: true,
+            type: String,
         },
         productionCompanies: {
             type: [String],
@@ -69,12 +45,6 @@ const movieSchema = new mongoose.Schema(
         },
         runTime: {
             type: String,
-            validate: {
-                validator: function(v) {
-                    return /\d{1,3} min/.test(v);
-                },
-                message: props => `${props.value} is not a valid runtime!`
-            },
         },
         genres: {
             type: [String],
@@ -105,16 +75,16 @@ const movieSchema = new mongoose.Schema(
         streamPlatforms: {
             type: [String],
         },
-        awards: {
-            type: [movieAwardSchema],
-        },
         budget: {
-            type: Number,
+            type: String,
         },
         boxOffice: {
-            type: Number,
+            type: String,
         },
         posterURL: {
+            type: String,
+        },
+        wikipedia: {
             type: String,
         },
     },
@@ -122,4 +92,7 @@ const movieSchema = new mongoose.Schema(
         timestamps: true,
     }
 );
-export const Movie = mongoose.models.Movie || mongoose.model("Movie", movieSchema)
+
+const Movie = mongoose.models.Movie || mongoose.model('Movie', movieSchema);
+
+export default Movie;
